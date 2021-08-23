@@ -4,7 +4,11 @@ import { StyledTodo } from './styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 
-const Todo = ({ todo }: any) => {
+interface ItemProps {
+  todo: TodoType;
+}
+
+const Todo = ({ todo }: ItemProps) => {
   const { deleteTodo, completeOneTodo } = useStore();
   const deleteOneTodo = (todo: TodoType) => {
     deleteTodo(todo);
@@ -12,6 +16,8 @@ const Todo = ({ todo }: any) => {
   const completeTodo = (todo: TodoType) => {
     completeOneTodo(todo);
   };
+  console.log(todo);
+
   return (
     <StyledTodo>
       <input
